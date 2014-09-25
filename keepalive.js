@@ -7,13 +7,11 @@
 // @copyright  2014, Bill Mei
 // ==/UserScript==
 
-stopCountdown();
-stimedout = false;
-interruptTimeout = true;
 countdownNum = null;
 countdownInterval = null;
 beginCountdown = null;
 countdown = null;
+sessionTimeoutTimeout = null;
 sessionTimeoutPopup = function() {
 	keepMeLoggedIn.open('get', '/keepAlive.html?rand=' + Math.floor(Math.random()*100000));
 	keepMeLoggedIn.send(null);
