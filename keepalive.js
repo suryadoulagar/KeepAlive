@@ -23,7 +23,7 @@ if (document.location.hostname === "careers.sso.queensu.ca") {
 
 // Moodle
 if (document.location.hostname === "moodle.queensu.ca") {
-	setTimeout(function(){
+	var keepalive_timeout = setTimeout(function(){
 		M.ajax_warn_logout.showBar = function() {
 			var url = M.cfg.wwwroot + '/local/ajax_logout_warn/ajax_renew.php',
 				cfg = {
@@ -37,5 +37,6 @@ if (document.location.hostname === "moodle.queensu.ca") {
 			Y.io(url, cfg)
 		}
 		M.ajax_warn_logout.showBar();
+		clearTimeout(keepalive_timeout);
 	}, (3*1000));
 }
