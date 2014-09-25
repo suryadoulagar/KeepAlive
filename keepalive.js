@@ -7,17 +7,14 @@
 // @copyright  2014, Bill Mei
 // ==/UserScript==
 
+stopCountdown();
 stimedout = false;
 interruptTimeout = true;
 countdownNum = null;
 countdownInterval = null;
-sessionInterval = null;
-sessionTimeoutPopup = null;
 beginCountdown = null;
 countdown = null;
-stopCountdown();
-function keepAlive() {
+sessionTimeoutPopup = function() {
 	keepMeLoggedIn.open('get', '/keepAlive.html?rand=' + Math.floor(Math.random()*100000));
 	keepMeLoggedIn.send(null);
 }
-setInterval("keepAlive()", 10000);
