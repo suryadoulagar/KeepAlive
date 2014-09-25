@@ -3,7 +3,8 @@
 // @namespace  http://www.kortaggio.com/
 // @version    0.1
 // @description  Prevents Queen's MyCareer and Moodle from timing out
-// @match      https://careers.sso.queensu.ca/*
+// @include      https://careers.sso.queensu.ca/*
+// @include      https://moodle.queensu.ca/*
 // @copyright  2014, Bill Mei
 // ==/UserScript==
 
