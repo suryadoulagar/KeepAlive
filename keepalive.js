@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 // MyCareer
-if (typeof sessionTimeoutPopup !== 'undefined') {
+if (document.location.hostname === "careers.sso.queensu.ca") {
 	countdownNum = null;
 	countdownInterval = null;
 	beginCountdown = null;
@@ -22,17 +22,20 @@ if (typeof sessionTimeoutPopup !== 'undefined') {
 }
 
 // Moodle
-if (typeof M !== 'undefined' && typeof M.ajax_warn_logout.showBar !== 'undefined') {
-	M.ajax_warn_logout.showBar = function() {
-		var url = M.cfg.wwwroot + '/local/ajax_logout_warn/ajax_renew.php',
-			cfg = {
-				method: 'GET',
-				on: {
-					complete: function(id, o, p) {
-						M.ajax_warn_logout.resetTimer();
+if (document.location.hostname === "moodle.queensu.ca") {
+	setTimeout(function(){
+		M.ajax_warn_logout.showBar = function() {
+			var url = M.cfg.wwwroot + '/local/ajax_logout_warn/ajax_renew.php',
+				cfg = {
+					method: 'GET',
+					on: {
+						complete: function(id, o, p) {
+							M.ajax_warn_logout.resetTimer();
+						}
 					}
-				}
-			};
-		Y.io(url, cfg)
-	}
+				};
+			Y.io(url, cfg)
+		}
+		M.ajax_warn_logout.showBar();
+	}, (3*1000));
 }
