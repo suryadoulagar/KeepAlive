@@ -16,3 +16,8 @@ sessionTimeoutPopup = null;
 beginCountdown = null;
 countdown = null;
 stopCountdown();
+function keepAlive() {
+	keepMeLoggedIn.open('get', '/keepAlive.html?rand=' + Math.floor(Math.random()*100000));
+	keepMeLoggedIn.send(null);
+}
+setInterval("keepAlive()", 10000);
