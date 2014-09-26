@@ -2,9 +2,10 @@
 // @name       KeepAlive
 // @namespace  http://www.kortaggio.com/
 // @version    0.1
-// @description  Prevents Queen's MyCareer and Moodle from timing out
+// @description  Prevents Queen's MyCareer, Moodle, and D2L from timing out
 // @include      https://careers.sso.queensu.ca/*
 // @include      https://moodle.queensu.ca/*
+// @include      https://qsblearning.ca/*
 // @copyright  2014, Bill Mei
 // ==/UserScript==
 
@@ -39,4 +40,10 @@ if (document.location.hostname === "moodle.queensu.ca") {
 		M.ajax_warn_logout.showBar();
 		clearTimeout(keepalive_timeout);
 	}, (3*1000));
+}
+
+// D2L
+if (document.location.hostname === "qsblearning.ca") {
+	D2L.PT.Auth.SessionTimeout.Expire = null;
+	D2L.PT.Auth.SessionTimeout.IsExpired = function(){return false};
 }
