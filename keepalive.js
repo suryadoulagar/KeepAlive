@@ -19,7 +19,7 @@ if (document.location.hostname === "careers.sso.queensu.ca") {
 	sessionTimeoutPopup = function() {
 		keepMeLoggedIn.open('get', '/keepAlive.html?rand=' + Math.floor(Math.random()*100000));
 		keepMeLoggedIn.send(null);
-	}
+	};
 }
 
 // Moodle
@@ -35,8 +35,8 @@ if (document.location.hostname === "moodle.queensu.ca") {
 						}
 					}
 				};
-			Y.io(url, cfg)
-		}
+			Y.io(url, cfg);
+		};
 		M.ajax_warn_logout.showBar();
 		clearTimeout(keepalive_timeout);
 	}, (3*1000));
@@ -45,5 +45,5 @@ if (document.location.hostname === "moodle.queensu.ca") {
 // D2L
 if (document.location.hostname === "qsblearning.ca") {
 	D2L.PT.Auth.SessionTimeout.Expire = null;
-	D2L.PT.Auth.SessionTimeout.IsExpired = function(){return false};
+	D2L.PT.Auth.SessionTimeout.IsExpired = function(){return false;};
 }
