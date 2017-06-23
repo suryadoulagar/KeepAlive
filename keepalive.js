@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       KeepAlive
-// @namespace  http://www.kortaggio.com/
+// @namespace  https://billmei.net
 // @version    0.1
 // @description  Prevents Queen's MyCareer, Moodle, and D2L from timing out
 // @include      https://careers.sso.queensu.ca/*
